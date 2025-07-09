@@ -16,20 +16,24 @@ const VideoModal = () => {
   }, [video]);
 
   useEffect(() => {
+    if (typeof document === "undefined") return;
     const closeOnEscapeKey = (e: KeyboardEvent) =>
       e.key === "Escape" ? setOpen(false) : null;
     document.body.addEventListener("keydown", closeOnEscapeKey);
     return () => {
       document.body.removeEventListener("keydown", closeOnEscapeKey);
     };
-  });
+  }, []);
 
   useEffect(() => {
+    if (typeof document === "undefined") return;
     if (open) document.body.style.overflow = "hidden";
     return (): void => {
-      document.body.style.overflow = "unset";
+      if (typeof document !== "undefined") {
+        document.body.style.overflow = "unset";
+      }
     };
-  });
+  }, [open]);
 
   const handleClick = () => {
     setOpen(false);
