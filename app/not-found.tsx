@@ -3,13 +3,10 @@
 import React from "react";
 import Link from "next/link";
 import dynamic from "next/dynamic";
-import { useRef } from "react";
 
 const Player = dynamic(() => import("@lottiefiles/react-lottie-player").then(mod => mod.Player), { ssr: false });
 
 const NotFound = () => {
-  const playerRef = useRef<any>(null);
-
   return (
     <div className="flex flex-col items-center justify-center h-screen bg-[#E0E3EB] dark:bg-[#10141E] w-[90%] mx-auto">
 
@@ -26,7 +23,6 @@ const NotFound = () => {
           src="https://lottie.host/0c8f383a-0668-465b-bb60-76ab47cae3ca/9EDnZblA3S.json"
           className="w-[500px] sm:w-[600px]"
           autoplay
-          ref={playerRef}
           loop
         />
       </div>
