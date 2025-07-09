@@ -1,10 +1,14 @@
 "use client";
 
-import ConfirmationUI from "@/components/ConfirmationUI";
+import dynamic from "next/dynamic";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
+
+const ConfirmationUI = dynamic(() => import("@/components/ConfirmationUI"), {
+  ssr: false,
+});
 
 interface FormData {
   email: string;

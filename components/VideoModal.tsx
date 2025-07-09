@@ -16,7 +16,7 @@ const VideoModal = () => {
   }, [video]);
 
   useEffect(() => {
-    if (typeof document === "undefined") return;
+    if (typeof window === "undefined" || typeof document === "undefined") return;
     const closeOnEscapeKey = (e: KeyboardEvent) =>
       e.key === "Escape" ? setOpen(false) : null;
     document.body.addEventListener("keydown", closeOnEscapeKey);
@@ -26,10 +26,10 @@ const VideoModal = () => {
   }, []);
 
   useEffect(() => {
-    if (typeof document === "undefined") return;
+    if (typeof window === "undefined" || typeof document === "undefined") return;
     if (open) document.body.style.overflow = "hidden";
     return (): void => {
-      if (typeof document !== "undefined") {
+      if (typeof window !== "undefined" && typeof document !== "undefined") {
         document.body.style.overflow = "unset";
       }
     };
