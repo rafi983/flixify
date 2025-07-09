@@ -8,7 +8,7 @@ import { useRef } from "react";
 const Player = dynamic(() => import("@lottiefiles/react-lottie-player").then(mod => mod.Player), { ssr: false });
 
 const NotFound = () => {
-  const playerRef = useRef<Player>(null);
+  const playerRef = useRef<any>(null);
 
   return (
     <div className="flex flex-col items-center justify-center h-screen bg-[#E0E3EB] dark:bg-[#10141E] w-[90%] mx-auto">
