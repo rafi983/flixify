@@ -9,6 +9,7 @@ import { VideoContext, VideoContextInterface } from "@/context/VideoContext";
 import { ModalContext, ModalContextInterface } from "@/context/ModalContext";
 
 const RegularCard = ({
+  id,
   title,
   thumbnail,
   year,
@@ -19,7 +20,6 @@ const RegularCard = ({
 }: videoProps) => {
   const { videos, setVideos }: VideoContextInterface = useContext(VideoContext);
   const { video, setVideo }: ModalContextInterface = useContext(ModalContext);
-
   const [clicked, setclicked] = useState(false);
 
   useEffect(() => {
@@ -30,14 +30,50 @@ const RegularCard = ({
     }
   }, [video?.title, title]);
 
-  const handleClick = () => {
-    setVideos((prevVideos) =>
-      prevVideos.map((video) =>
-        video.title === title
-          ? { ...video, isBookmarked: !video.isBookmarked }
-          : video
-      )
-    );
+  // Helper to sync isBookmarked state with backend
+  const syncBookmarks = async () => {
+    try {
+      const res = await fetch("/api/bookmark?type=all", { cache: "no-store" });
+      if (!res.ok) return;
+      const bookmarks = await res.json();
+      const bookmarkedIds = bookmarks.map((b: { videoId: string }) => String(b.videoId));
+      setVideos((prevVideos) =>
+        prevVideos.map((video) => ({
+          ...video,
+          isBookmarked: bookmarkedIds.includes(String(video.id)),
+        }))
+      );
+    } catch (err) {
+      // Optionally handle error
+    }
+  };
+
+  const handleClick = async () => {
+    const isCurrentlyBookmarked = videos.find((video) => video.id === id)?.isBookmarked;
+    // Debug log for bookmark action
+    console.log('Bookmark action:', { id, isCurrentlyBookmarked });
+    try {
+      if (!isCurrentlyBookmarked) {
+        const res = await fetch("/api/bookmark", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ videoId: id }),
+        });
+        const data = await res.json();
+        console.log('POST /api/bookmark response:', res.status, data);
+      } else {
+        const res = await fetch("/api/bookmark", {
+          method: "DELETE",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ videoId: id }),
+        });
+        const data = await res.json();
+        console.log('DELETE /api/bookmark response:', res.status, data);
+      }
+      await syncBookmarks();
+    } catch (err) {
+      console.error("Failed to update bookmark", err);
+    }
   };
 
   useEffect(() => {
@@ -79,8 +115,8 @@ const RegularCard = ({
             <path
               d="M23.0147 16.2292L12.6912 22.1895C12.5147 22.2914 12.2941 22.1641 12.2941 21.9603L12.2941 10.0397C12.2941 9.83594 12.5147 9.70858 12.6912 9.81047L23.0147 15.7708C23.1912 15.8726 23.1912 16.1274 23.0147 16.2292Z"
               stroke="white"
-              stroke-width="1.5"
-              className={`${
+              strokeWidth="1.5"
+              className={`$${
                 clicked
                   ? "text-white group-hover:stroke-black group-hover:text-black"
                   : "text-transparent group-hover:stroke-black"

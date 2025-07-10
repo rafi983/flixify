@@ -5,6 +5,7 @@ interface Thumbnail {
 }
 
 export interface videoProps {
+  id: string; // Add this line
   title: string;
   thumbnail: {
     trending?: Thumbnail;
@@ -21,6 +22,7 @@ export interface videoProps {
 
 export const videoData = [
   {
+    id: "1", // Add this line
     title: "Beyond Earth",
     thumbnail: {
       trending: {
@@ -41,7 +43,8 @@ export const videoData = [
     isBookmarked: false,
     isTrending: true,
   },
-  {
+  {    id: "2", // Add this line
+
     title: "Bottom Gear",
     thumbnail: {
       trending: {
@@ -62,7 +65,8 @@ export const videoData = [
     isBookmarked: false,
     isTrending: true,
   },
-  {
+  {    id: "3", // Add this line
+
     title: "Undiscovered Cities",
     thumbnail: {
       trending: {
@@ -84,6 +88,8 @@ export const videoData = [
     isTrending: true,
   },
   {
+    id: "4", // Add this line
+
     title: "1998",
     thumbnail: {
       trending: {
@@ -104,7 +110,8 @@ export const videoData = [
     isBookmarked: false,
     isTrending: true,
   },
-  {
+  {    id: "5", // Add this line
+
     title: "Dark Side of the Moon",
     thumbnail: {
       trending: {
@@ -125,7 +132,8 @@ export const videoData = [
     isBookmarked: false,
     isTrending: true,
   },
-  {
+  {    id: "6", // Add this line
+
     title: "The Great Lands",
     thumbnail: {
       regular: {
@@ -142,7 +150,8 @@ export const videoData = [
     isBookmarked: false,
     isTrending: false,
   },
-  {
+  {    id: "7", // Add this line
+
     title: "The Diary",
     thumbnail: {
       regular: {
@@ -159,7 +168,8 @@ export const videoData = [
     isBookmarked: false,
     isTrending: false,
   },
-  {
+  {    id: "8", // Add this line
+
     title: "Earth’s Untouched",
     thumbnail: {
       regular: {
@@ -176,7 +186,8 @@ export const videoData = [
     isBookmarked: false,
     isTrending: false,
   },
-  {
+  {    id: "9", // Add this line
+
     title: "No Land Beyond",
     thumbnail: {
       regular: {
@@ -193,7 +204,8 @@ export const videoData = [
     isBookmarked: false,
     isTrending: false,
   },
-  {
+  {    id: "10", // Add this line
+
     title: "During the Hunt",
     thumbnail: {
       regular: {
@@ -210,7 +222,8 @@ export const videoData = [
     isBookmarked: false,
     isTrending: false,
   },
-  {
+  {    id: "11", // Add this line
+
     title: "Autosport the Series",
     thumbnail: {
       regular: {
@@ -227,7 +240,8 @@ export const videoData = [
     isBookmarked: false,
     isTrending: false,
   },
-  {
+  {    id: "12", // Add this line
+
     title: "Same Answer II",
     thumbnail: {
       regular: {
@@ -244,7 +258,8 @@ export const videoData = [
     isBookmarked: false,
     isTrending: false,
   },
-  {
+  {    id: "13", // Add this line
+
     title: "Below Echo",
     thumbnail: {
       regular: {
@@ -261,7 +276,8 @@ export const videoData = [
     isBookmarked: false,
     isTrending: false,
   },
-  {
+  {    id: "14", // Add this line
+
     title: "The Rockies",
     thumbnail: {
       regular: {
@@ -278,7 +294,8 @@ export const videoData = [
     isBookmarked: false,
     isTrending: false,
   },
-  {
+  {    id: "15", // Add this line
+
     title: "Relentless",
     thumbnail: {
       regular: {
@@ -295,7 +312,8 @@ export const videoData = [
     isBookmarked: false,
     isTrending: false,
   },
-  {
+  {    id: "16", // Add this line
+
     title: "Community of Ours",
     thumbnail: {
       regular: {
@@ -312,7 +330,8 @@ export const videoData = [
     isBookmarked: false,
     isTrending: false,
   },
-  {
+  {    id: "17", // Add this line
+
     title: "Van Life",
     thumbnail: {
       regular: {
@@ -329,7 +348,8 @@ export const videoData = [
     isBookmarked: false,
     isTrending: false,
   },
-  {
+  {    id: "18", // Add this line
+
     title: "The Heiress",
     thumbnail: {
       regular: {
@@ -346,7 +366,8 @@ export const videoData = [
     isBookmarked: false,
     isTrending: false,
   },
-  {
+  {    id: "19", // Add this line
+
     title: "Off the Track",
     thumbnail: {
       regular: {
@@ -363,7 +384,8 @@ export const videoData = [
     isBookmarked: false,
     isTrending: false,
   },
-  {
+  {    id: "20", // Add this line
+
     title: "Whispering Hill",
     thumbnail: {
       regular: {
@@ -380,7 +402,7 @@ export const videoData = [
     isBookmarked: false,
     isTrending: false,
   },
-  {
+  {id: "21", // Add this line
     title: "112",
     thumbnail: {
       regular: {
@@ -397,7 +419,7 @@ export const videoData = [
     isBookmarked: false,
     isTrending: false,
   },
-  {
+  {id: "22", // Add this line
     title: "Lone Heart",
     thumbnail: {
       regular: {
@@ -414,7 +436,7 @@ export const videoData = [
     isBookmarked: false,
     isTrending: false,
   },
-  {
+  {   id: "23", // Add this line
     title: "Production Line",
     thumbnail: {
       regular: {
@@ -431,7 +453,7 @@ export const videoData = [
     isBookmarked: false,
     isTrending: false,
   },
-  {
+  { id: "24", // Add this line
     title: "Dogs",
     thumbnail: {
       regular: {
@@ -448,7 +470,7 @@ export const videoData = [
     isBookmarked: false,
     isTrending: false,
   },
-  {
+  {  id: "25", // Add this line
     title: "Asia in 24 Days",
     thumbnail: {
       regular: {
@@ -465,7 +487,7 @@ export const videoData = [
     isBookmarked: false,
     isTrending: false,
   },
-  {
+  { id: "26", // Add this line
     title: "The Tasty Tour",
     thumbnail: {
       regular: {
@@ -482,7 +504,7 @@ export const videoData = [
     isBookmarked: false,
     isTrending: false,
   },
-  {
+  { id: "27", // Add this line
     title: "Darker",
     thumbnail: {
       regular: {
@@ -499,7 +521,7 @@ export const videoData = [
     isBookmarked: false,
     isTrending: false,
   },
-  {
+  { id: "28", // Add this line
     title: "Unresolved Cases",
     thumbnail: {
       regular: {
@@ -516,7 +538,7 @@ export const videoData = [
     isBookmarked: false,
     isTrending: false,
   },
-  {
+  { id: "29", // Add this line
     title: "Mission: Saturn",
     thumbnail: {
       regular: {

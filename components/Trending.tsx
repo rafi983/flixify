@@ -24,16 +24,22 @@ const Trending = ({ filter }: Filter) => {
             {videos
               .filter((video) => video.isTrending == true)
               .map((video, index) => {
+                // Debug log for each trending video
+                console.log('Trending video:', {
+                  id: video.id,
+                  title: video.title,
+                  isBookmarked: video.isBookmarked
+                });
                 return (
                   <TrendingCard
                     key={index}
+                    id={video.id}
                     title={video.title}
                     thumbnail={video.thumbnail}
                     video={video.video}
                     year={video.year}
                     category={video.category}
                     rating={video.rating}
-                    isBookmarked={video.isBookmarked}
                     isTrending={video.isTrending}
                     onClick={() => setVideo(video)}
                   />

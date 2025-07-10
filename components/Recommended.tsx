@@ -37,6 +37,7 @@ const Recommended = ({ filter }: Filter) => {
           return (
             <RegularCard
               key={index}
+              id={video.id}
               title={video.title}
               thumbnail={video.thumbnail}
               video={video.video}

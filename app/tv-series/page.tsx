@@ -42,6 +42,7 @@ export default function Home() {
             {filteredVideos.map((video, index) => (
               <RegularCard
                 key={index}
+                id={video.id}
                 title={video.title}
                 thumbnail={video.thumbnail}
                 video={video.video}

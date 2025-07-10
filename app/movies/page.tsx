@@ -43,6 +43,7 @@ export default function Home() {
               return (
                 <RegularCard
                   key={index}
+                  id={video.id}
                   title={video.title}
                   thumbnail={video.thumbnail}
                   video={video.video}
